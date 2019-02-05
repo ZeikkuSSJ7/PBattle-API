@@ -9,14 +9,9 @@ public class Main {
         Attack attack = new Attack();
 
         Scanner sc = new Scanner(System.in);
-        Pokemon pokemon = new Pokemon("Pikachu", "Electric", "Static Charge", 90, 70, 60, 70, 65, 85, 4);
-        System.out.println(pokemon.getName() + " quiere aprender el ataque " + pokemon.getAttacks()[0].getName());
-        System.out.println("Donde lo quieres aprender?");
-        pokemon.setAttacks(null);
-        System.out.println(pokemon.getAttacks()[0].getName());
-        System.out.println(pokemon.getAttacks()[0].getPower());
-        System.out.println(pokemon.getAttacks()[0].getPowerPoints());
-        System.out.println(pokemon.getAttacks()[0].getPrecision());
-        System.out.println(pokemon.getAttacks()[0].getType());
+        Pokemon pokemon = new Pokemon("Pikachu", 100, "Electric", "Static Charge", 90, 70, 60, 70, 65, 85, 4);
+        Pokemon pokemon2 = new Pokemon("Ludicolo", 100, "Grass", "Water", "Absorb Water", 120, 60, 80, 70, 100, 60, 4);
+        System.out.println("PIKACUse INFORMATION!");
+        System.out.println("PIKAC damage " + Attack.fight(pokemon.getLevel(), pokemon.getSpecialAttack(), pokemon2.getSpecialDefense(), pokemon.getAttacks()[0].getPower(), pokemon.getAttacks()[0].getType(), pokemon.getType1(), pokemon2.getType1(), pokemon2.getType2()) + "!");
     }
 }

@@ -3,6 +3,7 @@
  */
 public class Pokemon {
     private String name;
+    private int level;
     private String type1;
     private String type2;
     private String ability;
@@ -15,55 +16,26 @@ public class Pokemon {
     private Attack[] attacks;
     private String heldItem;
     // case it has all atributes
-    public Pokemon(String name, String type1, String type2, String ability, int hp, int attack, int defense, int specialAttack, int specialDefense, int speed, int attackNumber, String heldItem) {
-        super();
-        this.name = name;
-        this.type1 = type1;
+    public Pokemon(String name, int level, String type1, String type2, String ability, int hp, int attack, int defense, int specialAttack, int specialDefense, int speed, int attackNumber, String heldItem) {
+        this(name, level, type1, ability, hp, attack, defense, specialAttack, specialDefense, speed, attackNumber);
         this.type2 = type2;
-        this.ability = ability;
-        this.hp = hp;
-        this.attack = attack;
-        this.defense = defense;
-        this.specialAttack = specialAttack;
-        this.specialDefense = specialDefense;
-        this.speed = speed;
-        this.attacks = new Attack[attackNumber];
         this.heldItem = heldItem;
     }
     // case it has no second type but held item
-    public Pokemon(String name, String type1, String ability, int hp, int attack, int defense, int specialAttack, int specialDefense, int speed, int attackNumber, String heldItem) {
-        super();
-        this.name = name;
-        this.type1 = type1;
-        this.ability = ability;
-        this.hp = hp;
-        this.attack = attack;
-        this.defense = defense;
-        this.specialAttack = specialAttack;
-        this.specialDefense = specialDefense;
-        this.speed = speed;
-        this.attacks = new Attack[attackNumber];
+    public Pokemon(String name, int level, String type1, String ability, int hp, int attack, int defense, int specialAttack, int specialDefense, int speed, int attackNumber, String heldItem) {
+        this(name, level, type1, ability, hp, attack, defense, specialAttack, specialDefense, speed, attackNumber);
         this.heldItem = heldItem;
     }
     // case it has second type but no held item
-    public Pokemon(String name, String type1, String type2, String ability, int hp, int attack, int defense, int specialAttack, int specialDefense, int speed, int attackNumber) {
-        super();
-        this.name = name;
-        this.type1 = type1;
+    public Pokemon(String name, int level, String type1, String type2, String ability, int hp, int attack, int defense, int specialAttack, int specialDefense, int speed, int attackNumber) {
+        this(name, level, type1, type2, ability, hp, attack, defense, specialAttack, specialDefense, speed, attackNumber, ability);
         this.type2 = type2;
-        this.ability = ability;
-        this.hp = hp;
-        this.attack = attack;
-        this.defense = defense;
-        this.specialAttack = specialAttack;
-        this.specialDefense = specialDefense;
-        this.speed = speed;
-        this.attacks = new Attack[attackNumber];
     }
     // case it has no second type AND item
-    public Pokemon(String name, String type1, String ability, int hp, int attack, int defense, int specialAttack, int specialDefense, int speed, int attackNumber) {
+    public Pokemon(String name, int level, String type1, String ability, int hp, int attack, int defense, int specialAttack, int specialDefense, int speed, int attackNumber) {
         super();
         this.name = name;
+        this.level = level;
         this.type1 = type1;
         this.ability = ability;
         this.hp = hp;
@@ -74,6 +46,8 @@ public class Pokemon {
         this.speed = speed;
         this.attacks = new Attack[attackNumber];
         attacks[0] = new Attack("Thunderbolt", 95, "Electric", 15);
+        attacks[1] = new Attack("Electric Tackle", 120, "Electric", 10);
+        attacks[2] = new Attack("Poyo", 2000, "Kirb", 20);
     }
     // default case, a missigno is created
     public Pokemon() {
@@ -95,6 +69,12 @@ public class Pokemon {
     }
     public String getName() {
         return name;
+    }
+    /**
+     * @return the level
+     */
+    public int getLevel() {
+        return level;
     }
     public String getType1() {
         return type1;
