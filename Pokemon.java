@@ -8,31 +8,16 @@ public class Pokemon {
     private String type2;
     private String ability;
     private int hp;
-    private int attack;
-    private int defense;
-    private int specialAttack;
-    private int specialDefense;
-    private int speed;
+    private double attack;
+    private double defense;
+    private double specialAttack;
+    private double specialDefense;
+    private double speed;
     private Attack[] attacks;
     private String heldItem;
-    // case it has all atributes
-    public Pokemon(String name, int level, String type1, String type2, String ability, int hp, int attack, int defense, int specialAttack, int specialDefense, int speed, int attackNumber, String heldItem) {
-        this(name, level, type1, ability, hp, attack, defense, specialAttack, specialDefense, speed, attackNumber);
-        this.type2 = type2;
-        this.heldItem = heldItem;
-    }
-    // case it has no second type but held item
-    public Pokemon(String name, int level, String type1, String ability, int hp, int attack, int defense, int specialAttack, int specialDefense, int speed, int attackNumber, String heldItem) {
-        this(name, level, type1, ability, hp, attack, defense, specialAttack, specialDefense, speed, attackNumber);
-        this.heldItem = heldItem;
-    }
-    // case it has second type but no held item
-    public Pokemon(String name, int level, String type1, String type2, String ability, int hp, int attack, int defense, int specialAttack, int specialDefense, int speed, int attackNumber) {
-        this(name, level, type1, type2, ability, hp, attack, defense, specialAttack, specialDefense, speed, attackNumber, ability);
-        this.type2 = type2;
-    }
+    private String specialEffect;
     // case it has no second type AND item
-    public Pokemon(String name, int level, String type1, String ability, int hp, int attack, int defense, int specialAttack, int specialDefense, int speed, int attackNumber) {
+    public Pokemon(String name, int level, String type1, String ability, int hp, double attack, double defense, double specialAttack, double specialDefense, double speed, int attackNumber) {
         super();
         this.name = name;
         this.level = level;
@@ -48,6 +33,44 @@ public class Pokemon {
         attacks[0] = new Attack("Thunderbolt", 95, "Electric", 15);
         attacks[1] = new Attack("Electric Tackle", 120, "Electric", 10);
         attacks[2] = new Attack("Poyo", 2000, "Kirb", 20);
+    }
+    // case it has all atributes
+    public Pokemon(String name, int level, String type1, String type2, String ability, int hp, double attack, double defense, double specialAttack, double specialDefense, double speed, String heldItem, int attackNumber ) {
+        this(name, level, type1, ability, hp, attack, defense, specialAttack, specialDefense, speed, attackNumber);
+        this.type2 = type2;
+        this.heldItem = heldItem;
+    }
+    // case it has no second type but held item
+    public Pokemon(String name, int level, String type1, String ability, int hp, double attack, double defense, double specialAttack, double specialDefense, double speed, String heldItem, int attackNumber) {
+        this(name, level, type1, ability, hp, attack, defense, specialAttack, specialDefense, speed, attackNumber);
+        this.heldItem = heldItem;
+    }
+    // case it has second type but no held item
+    public Pokemon(String name, int level, String type1, String type2, String ability, int hp, double attack, double defense, double specialAttack, double specialDefense, double speed, int attackNumber) {
+        this(name, level, type1, ability, hp, attack, defense, specialAttack, specialDefense, speed, attackNumber);
+        this.type2 = type2;
+    }
+    // one type and specialEffect
+    public Pokemon(String name, int level, String type1, String ability, int hp, double attack, double defense, double specialAttack, double specialDefense, double speed, int attackNumber, String specialEffect) {
+        this(name, level, type1, ability, hp, attack, defense, specialAttack, specialDefense, speed, attackNumber);
+        this.specialEffect = specialEffect;
+    }
+    // second type and special effect
+    public Pokemon(String name, int level, String type1, String type2, String ability, int hp, double attack, double defense, double specialAttack, double specialDefense, double speed, int attackNumber, String specialEffect) {
+        this(name, level, type1, ability, hp, attack, defense, specialAttack, specialDefense, speed, attackNumber);
+        this.type2 = type2;
+        this.specialEffect = specialEffect;
+    }
+    // held item and special effect
+    public Pokemon(String name, int level, String type1, String ability, int hp, double attack, double defense, double specialAttack, double specialDefense, double speed, String heldItem, int attackNumber, String specialEffect) {
+        this(name, level, type1, ability, hp, attack, defense, specialAttack, specialDefense, speed, attackNumber);
+        this.heldItem = heldItem;
+        this.specialEffect = specialEffect;
+    }
+    // second type, special effect, no held item
+    public Pokemon(String name, int level, String type1, String type2, String ability, int hp, double attack, double defense, double specialAttack, double specialDefense, double speed, int attackNumber, String heldItem, String specialEffect) {
+        this(name, level, type1, ability, hp, attack, defense, specialAttack, specialDefense, speed, attackNumber);
+        this.specialEffect = specialEffect;
     }
     // default case, a missigno is created
     public Pokemon() {
@@ -85,10 +108,10 @@ public class Pokemon {
     public String getAbility() {
         return ability;
     }
-    public int getAttack() {
+    public double getAttack() {
         return attack;
     }
-    public int getDefense() {
+    public double getDefense() {
         return defense;
     }
     public String getHeldItem() {
@@ -97,25 +120,25 @@ public class Pokemon {
     public int getHp() {
         return hp;
     }
-    public int getSpecialAttack() {
+    public double getSpecialAttack() {
         return specialAttack;
     }
-    public int getSpecialDefense() {
+    public double getSpecialDefense() {
         return specialDefense;
     }
-    public int getSpeed() {
+    public double getSpeed() {
         return speed;
     }
     public void setAbility(String ability) {
         this.ability = ability;
     }
-    public void setAttack(int attack) {
+    public void setAttack(double attack) {
         this.attack = attack;
     }
     public void setAttacks(Attack[] attacks) {
         this.attacks = attacks;
     }
-    public void setDefense(int defense) {
+    public void setDefense(double defense) {
         this.defense = defense;
     }
     public void setHeldItem(String heldItem) {
@@ -127,13 +150,13 @@ public class Pokemon {
     public void setName(String name) {
         this.name = name;
     }
-    public void setSpecialAttack(int specialAttack) {
+    public void setSpecialAttack(double specialAttack) {
         this.specialAttack = specialAttack;
     }
-    public void setSpecialDefense(int specialDefense) {
+    public void setSpecialDefense(double specialDefense) {
         this.specialDefense = specialDefense;
     }
-    public void setSpeed(int speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
     public void setType1(String type1) {
@@ -141,5 +164,17 @@ public class Pokemon {
     }
     public void setType2(String type2) {
         this.type2 = type2;
+    }
+    /**
+     * @param specialEffect the specialEffect to set
+     */
+    public void setSpecialEffect(String specialEffect) {
+        this.specialEffect = specialEffect;
+    }
+    /**
+     * @return the specialEffect
+     */
+    public String getSpecialEffect() {
+        return specialEffect;
     }
 }

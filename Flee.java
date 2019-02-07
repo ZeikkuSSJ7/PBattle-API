@@ -1,7 +1,7 @@
 import java.util.Random;
 
 /**
- * Flee
+ * Flee v1.0
  */
 public class Flee {
     public static int tries = 0;
