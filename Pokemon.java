@@ -30,9 +30,9 @@ public class Pokemon {
         this.specialDefense = specialDefense;
         this.speed = speed;
         this.attacks = new Attack[attackNumber];
-        attacks[0] = new Attack("Thunderbolt", 95, "Electric", 15);
-        attacks[1] = new Attack("Electric Tackle", 120, "Electric", 10);
-        attacks[2] = new Attack("Poyo", 2000, "Kirb", 20);
+        attacks[0] = new Attack("Thunderbolt", 95, "Electric", 15, "Special");
+        attacks[1] = new Attack("Electric Tackle", 120, "Electric", 10, "Physic");
+        attacks[2] = new Attack("Poyo", 2000, "Kirb", 20, "Special");
     }
     // case it has all atributes
     public Pokemon(String name, int level, String type1, String type2, String ability, int hp, double attack, double defense, double specialAttack, double specialDefense, double speed, String heldItem, int attackNumber ) {
@@ -74,7 +74,6 @@ public class Pokemon {
     }
     // default case, a missigno is created
     public Pokemon() {
-        super();
         name = "MissingNo.";
         type1 = "Bird";
         type2 = "Normal";
@@ -85,7 +84,7 @@ public class Pokemon {
         specialAttack = 120;
         specialDefense = 0;
         speed = 999;
-        Attack struggle = new Attack("Struggle", 50, "Normal", 0);
+        Attack struggle = new Attack();
     }
     public Attack[] getAttacks() {
         return attacks;
@@ -128,6 +127,12 @@ public class Pokemon {
     }
     public double getSpeed() {
         return speed;
+    }
+    /**
+     * @param level the level to set
+     */
+    public void setLevel(int level) {
+        this.level = level;
     }
     public void setAbility(String ability) {
         this.ability = ability;
