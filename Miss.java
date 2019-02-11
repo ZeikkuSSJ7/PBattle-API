@@ -1,5 +1,8 @@
 /**
- * Miss
+ * Miss V1.0 FINAL
+ * - Probably the last time I will change this class
+ * - @return true or false depending if the pokemon misses or not
+ * - @param precision recieves the precision of the attack when called in the Attack class
  */
 import java.util.*;
 public class Miss {

@@ -1,8 +1,8 @@
 /**
- * Efectivity
+ * Efectivity v1.1 FINAL 
+ * - add Dark type
  */
 public class Efectivity {
-
     public static double efectivity(String pokemonType, String enemyPokemonType) {
         switch (pokemonType) {
             case "Normal":
@@ -391,6 +391,22 @@ public class Efectivity {
                     return 2;
                 }
                 break;
+            case "Dark":
+                if (enemyPokemonType.equals("Ghost")) {
+                return 2;
+                }
+                if (enemyPokemonType.equals("Psychic")) {
+                    return 2;
+                }
+                if (enemyPokemonType.equals("Dark")) {
+                    return 0.5;
+                }
+                if (enemyPokemonType.equals("Fight")) {
+                    return 0.5;
+                }
+                if (enemyPokemonType.equals("Fairy")) {
+                    return 0.5;
+                }
         }
         return 1;
     }
