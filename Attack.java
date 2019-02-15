@@ -1,4 +1,3 @@
-import java.util.Random;
 
 /**
  * Attack v1.1
@@ -93,7 +92,6 @@ public class Attack {
      * @param i the position of the attack used
      */
     public static void fight(Pokemon pokemon, Pokemon pokemon2, int i){
-        Random ran = new Random();
         double efectivity = Efectivity.efectivity(pokemon.getAttacks()[i].getType(), pokemon2.getType1());
         if (pokemon2.getType2() != null) {
             efectivity *= Efectivity.efectivity(pokemon.getAttacks()[i].getType(), pokemon2.getType2());
@@ -107,7 +105,7 @@ public class Attack {
                 stab = 1.5f;
             }
         }
-        double bonus = efectivity*stab*0.01*(ran.nextInt(16) + 85);
+        double bonus = efectivity*stab*0.01*(Main.ran.nextInt(16) + 85);
         double damage = 0;
         if (pokemon.getAttacks()[i].getCategory().equals("Physical")) {
             damage = (((((0.2*pokemon.getLevel())+1)*pokemon.getAttack()*pokemon.getAttacks()[i].getPower())/(25*pokemon2.getDefense())) + 2)*bonus;
@@ -116,7 +114,7 @@ public class Attack {
             damage = (((((0.2*pokemon.getLevel())+1)*pokemon.getSpecialAttack()*pokemon.getAttacks()[i].getPower())/(25*pokemon2.getSpecialDefense())) + 2)*bonus;
         }
         boolean critical = false;
-        if (ran.nextInt(100) + 1 < 5) {
+        if (Main.ran.nextInt(100) + 1 < 5) {
             critical = true;
             damage *= 2;
         }

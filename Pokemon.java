@@ -1,3 +1,4 @@
+
 /**
  * Pokemon v1.0
  * - Major attributes for all kinds of Pokemon
