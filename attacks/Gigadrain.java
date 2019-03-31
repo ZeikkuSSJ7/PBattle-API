@@ -1,5 +1,4 @@
 package attacks;
-import main.Attack;
 /**
  * Gigadrain
  */

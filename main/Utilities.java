@@ -1,8 +1,11 @@
 package main;
+
+import attacks.*;
+import pokemon.*;
 /**
  * Utilities
  */
-public class Utilities {
+public abstract class Utilities {
     /**
      * Used for the start of the battle and for every time you want to change pokemons
      * @param pokemonInBattle the pokemon used in battle
@@ -54,7 +57,7 @@ public class Utilities {
      * @param attack the attack to print
      * @return <code>String</code> with all attack data needed for the battle
      */
-    public static String printAttack(Attack attack) {
+    private static String printAttack(Attack attack) {
         if (attack != null) {
             return attack.getName() + " " + attack.getPowerPoints() + "PP";
         }
@@ -74,7 +77,7 @@ public class Utilities {
      * @param pokemon the pokemon to print
      * @return String with pokemon data
      */
-    public static String printPokemon(Pokemon pokemon) {
+    private static String printPokemon(Pokemon pokemon) {
         if(pokemon != null) {
             return pokemon.getName() + " LVL " + pokemon.getLevel() + " HP " + pokemon.getHp();
         }
@@ -112,5 +115,17 @@ public class Utilities {
             return true;
         }
         return false;
-    }    
+    }
+    /**
+     * Initializes the recieved Pokemon[] with default values to test the whole Class Structure
+     * @param pokemons the Pokemon[] to initialize
+     */
+    public static void initialize(Pokemon[] pokemons){
+        pokemons[0] = new Pikachu();
+        pokemons[1] = new Charizard();
+        pokemons[2] = new Blastoise();
+        pokemons[3] = new Venusaur();
+        pokemons[4] = new Houndoom();
+        pokemons[5] = new Kerbe();
+    }
 }

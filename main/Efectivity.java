@@ -3,7 +3,7 @@ package main;
  * Efectivity v1.1 FINAL 
  * - add Dark type
  */
-public class Efectivity {
+public abstract class Efectivity {
     public static double efectivity(String pokemonType, String enemyPokemonType) {
         switch (pokemonType) {
             case "Normal":

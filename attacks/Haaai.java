@@ -1,7 +1,5 @@
 package attacks;
 
-import main.Attack;
-
 /**
  * Haaai
  */

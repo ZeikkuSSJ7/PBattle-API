@@ -3,9 +3,10 @@ package main;
 import java.util.Random;
 
 /**
- * RandomClass
+ * RandomClass vFINAL
+ * A class containing the Random used in all the 
+ * package's classes
  */
-public class RandomClass {
-
+public abstract class RandomClass {
     public static Random ran = new Random();
 }
