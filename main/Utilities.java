@@ -1,6 +1,9 @@
 package main;
 
 import attacks.*;
+import bag.Bag;
+import bag.medicines.*;
+import bag.items.*;
 import pokemon.*;
 /**
  * Utilities
@@ -127,5 +130,14 @@ public abstract class Utilities {
         pokemons[3] = new Venusaur();
         pokemons[4] = new Houndoom();
         pokemons[5] = new Kerbe();
+    }
+    public static void initialize(Bag bag) {
+        bag.getMedicines().add(new Potion());
+        bag.getMedicines().add(new Superpotion());
+        bag.getMedicines().add(new Hyperpotion());
+        bag.getItems().add(new Repel());
+        bag.getItems().add(new Superrepel());
+        bag.getItems().add(new MaximumRepel());
+        
     }
 }

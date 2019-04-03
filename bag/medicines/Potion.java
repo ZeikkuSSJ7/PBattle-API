@@ -15,6 +15,7 @@ public class Potion extends Medicine {
     public void use(Pokemon pokemon) {
         pokemon.setHp(pokemon.getHp() + Integer.parseInt(getEffect()));
         System.out.println(pokemon.getName() + " healed " + getEffect() + "HP!");
+        System.out.println("Now " + pokemon.getName() + " has " + pokemon.getHp() + "HP!");
     }
     
 }

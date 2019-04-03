@@ -1,6 +1,7 @@
 import main.SpecialEffect;
 import main.Utilities;
 import attacks.Attack;
+import bag.Bag;
 import pokemon.Pokemon;
 
 /**
@@ -47,6 +48,9 @@ public class Commands {
         System.out.print("Select attack: ");
         try {
             int attackSelect = Integer.parseInt(Main.sc.nextLine());
+            if (attackSelect > pokemon.getAttacks().length || attackSelect < 1) {
+                return -1;
+            }
             if (SpecialEffect.ableToFight(pokemon)){
                 Attack.fight(pokemon, pokemonEnemy, attackSelect - 1);
                 SpecialEffect.doSpecialEffect(pokemon, pokemonEnemy, pokemon.getAttacks()[attackSelect - 1]);
@@ -81,5 +85,55 @@ public class Commands {
             System.out.println("The attack does not exist!");
         }
         return j;
+    }
+    public static boolean bag(Bag bag, Pokemon[] pokemons, Pokemon pokemon){
+        while (true) {
+            System.out.println("What pocket do you want to use?");
+            System.out.println("1.- Items");
+            System.out.println("2.- Medicines");
+            int option = 1;
+            switch (Main.sc.nextLine()) {
+                case "1":
+                    
+                    while (option < bag.getItems().size() && option >= 0){
+                        bag.listItems();
+                        System.out.println("From which item do you want to see its data?");
+                        System.out.println("Introduce other number to exit.");
+                        option = Integer.parseInt(Main.sc.nextLine()) - 1;
+                        if (bag.getItems().size() <= option || option < 0) {
+                            break;
+                        }
+                        bag.listItemData(option);
+                        return false;
+                    }
+                case "2":
+                    while (option < bag.getMedicines().size() && option >= 0){
+                        bag.listMedicines();
+                        System.out.println("From which medicine do you want to see its data?");
+                        System.out.println("Introduce other number to exit.");
+                        option = Integer.parseInt(Main.sc.nextLine()) - 1;
+                        if (bag.getMedicines().size() <= option || option < 0) {
+                            break;
+                        }
+                        bag.listMedicineData(option);
+                        System.out.println("Do you want to use the item?");
+                        if (Main.sc.nextLine().toLowerCase().startsWith("s")) {
+                            System.out.println("On which pokemon?");
+                            System.out.println(Utilities.printPokemons(pokemons));
+                            int pos = Integer.parseInt(Main.sc.nextLine()) - 1;
+                            bag.getMedicines().get(option).use(pokemons[pos]);
+                            bag.getMedicines().get(option).setQuantity(bag.getMedicines().get(option).getQuantity() - 1);
+                            if (pokemon.getName().equals(pokemons[pos].getName())){
+                                System.out.println("eo");
+                                pokemon.setHp(pokemons[pos].getHp());
+                                System.out.println(pokemon.getHp());
+                                System.out.println(pokemons[pos].getHp());
+                            }
+                            return true;
+                        }
+                    }
+                    return false;
+            }
+        }
     }
 }

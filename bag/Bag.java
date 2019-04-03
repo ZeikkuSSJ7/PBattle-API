@@ -16,11 +16,13 @@ public class Bag {
     }
     public void listMedicines() {
         for (int i = 0; i < medicines.size(); i++) {
-            System.out.println(medicines.get(i).getName());
+            System.out.println((i + 1) + ".- " + medicines.get(i).getName() + " : " + medicines.get(i).getQuantity());
         }
     }
     public void listMedicineData(int i) {
-        System.out.println(medicines.get(i).getName() + ": " + medicines.get(i).getDescription() + " | " + medicines.get(i).getQuantity());
+        System.out.println(medicines.get(i).getName() + ": " +
+            medicines.get(i).getDescription() + " | " +
+            medicines.get(i).getQuantity());
     }
 
     private ArrayList<Item> items = new ArrayList<>();
@@ -32,11 +34,13 @@ public class Bag {
     }
     public void listItems() {
         for (int i = 0; i < items.size(); i++) {
-            System.out.println(items.get(i).getName());
+            System.out.println((i + 1) + ".- " + items.get(i).getName() + " : " + items.get(i).getQuantity());
         }
     }
     public void listItemData(int i) {
-        System.out.println(items.get(i).getName() + ": " + items.get(i).getDescription() + " | " + items.get(i).getQuantity());
+        System.out.println(items.get(i).getName() + ": " + 
+        items.get(i).getDescription() + " | " + 
+        items.get(i).getQuantity());
     }
 
 }
